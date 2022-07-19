@@ -1,3 +1,50 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/recommended",
+    "plugin:unicorn/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "next",
+    "next/core-web-vitals"
+  ],
+  "plugins": ["unicorn", "@typescript-eslint", "prettier"],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "unicorn/text-encoding-identifier-case": "off",
+    "unicorn/filename-case": "off",
+    "unicorn/prefer-module": "off",
+    "unicorn/prevent-abbreviations": [
+      "warn",
+      {
+        "replacements": {
+          "args": false,
+          "props": false
+        }
+      }
+    ]
+  },
+  "parserOptions": {
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".ts", ".tsx"],
+        "moduleDirectory": ["app", "node_modules"]
+      }
+    }
+  }
 }
